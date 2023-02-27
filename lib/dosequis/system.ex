@@ -1,4 +1,4 @@
-defmodule ECS.System do
+defmodule DosEquis.System do
   @moduledoc """
     A base for creating new Systems.
   """

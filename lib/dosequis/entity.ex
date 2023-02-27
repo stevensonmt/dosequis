@@ -1,4 +1,4 @@
-defmodule ECS.Entity do
+defmodule DosEquis.Entity do
   @moduledoc """
     A behaviour for creating new Entities.
   """
@@ -14,7 +14,7 @@ defmodule ECS.Entity do
   defmacro __using__(_options) do
     quote do
       # Require Components to implement interface
-      @behaviour ECS.Entity
+      @behaviour DosEquis.Entity
     end
   end
 end

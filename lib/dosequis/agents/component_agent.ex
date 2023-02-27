@@ -1,4 +1,4 @@
-defmodule ECS.Component.Agent do
+defmodule DosEquis.Component.Agent do
   @moduledoc """ 
     Create a simple Agent that gets and sets. 
     Each component instantiates one to keep state.
