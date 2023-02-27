@@ -10,4 +10,11 @@ defmodule ECS.Entity do
   @callback add(entity :: entity, components :: [any]) :: entity
 
   @callback reload(entity :: entity) :: entity
+
+  defmacro __using__(_options) do
+    quote do
+      # Require Components to implement interface
+      @behaviour ECS.Entity
+    end
+  end
 end

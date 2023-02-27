@@ -1,6 +1,6 @@
 # A bunny prefab
 defmodule Bunny do
-  @behaviour ECS.Entity
+  use ECS.Entity
 
   defstruct [:id, :components]
 
