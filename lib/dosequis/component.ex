@@ -33,7 +33,7 @@ defmodule DosEquis.Component do
     # Register component for systems to reference
     DosEquis.Registry.insert(component_type, pid)
 
-    %{
+    %__MODULE__{
       id: pid,
       state: initial_state
     }
@@ -44,7 +44,7 @@ defmodule DosEquis.Component do
   def get(pid) do
     state = DosEquis.Component.Agent.get(pid)
 
-    %{
+    %__MODULE__{
       id: pid,
       state: state
     }
@@ -55,7 +55,7 @@ defmodule DosEquis.Component do
   def update(pid, new_state) do
     DosEquis.Component.Agent.set(pid, new_state)
 
-    %{
+    %__MODULE__{
       id: pid,
       state: new_state
     }
