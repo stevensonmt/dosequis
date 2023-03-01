@@ -1,11 +1,12 @@
 # A bunny prefab
 defmodule Bunny do
+  @moduledoc "An example entity implementation of a Bunny using the Entity behaviour."
   use DosEquis.Entity
 
   defstruct [:id, :components]
 
   @type id :: String.t()
-  @type components :: list(DosEquis.Component)
+  @type components :: list(DosEquis.Component.t())
   @type t :: %__MODULE__{
           id: String.t(),
           components: components

@@ -9,6 +9,10 @@ defmodule DosEquis.Registry do
     [#PID<0.87.0>]
   """
 
+  use Agent
+
+  def start_link(_), do: start()
+
   def start do
     Agent.start_link(fn -> %{} end, name: __MODULE__)
   end

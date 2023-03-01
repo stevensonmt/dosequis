@@ -16,6 +16,8 @@ defmodule DosEquis.Component do
 
   # Component interface
   @callback new(state) :: t
+  @callback get(id) :: t
+  @callback update(id, state) :: t
 
   defmacro __using__(_options) do
     quote do

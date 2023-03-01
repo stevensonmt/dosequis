@@ -1,4 +1,4 @@
-defmodule Ecs.Mixfile do
+defmodule DosEquis.Mixfile do
   use Mix.Project
 
   def project do
@@ -16,7 +16,7 @@ defmodule Ecs.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [extra_applications: [:logger, :crypto]]
+    Application.get_env(:dosequis, :startup_apps)
   end
 
   # Dependencies can be Hex packages:

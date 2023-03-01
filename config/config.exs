@@ -28,3 +28,12 @@ import Config
 # here (which is why it is important to import them last).
 #
 # import_config "#{config_env()}.exs"
+
+startup_apps =
+  if Mix.env() == :dev do
+    [extra_applications: [:logger, :crypto], mod: {DosEquis.Examples, []}]
+  else
+    [extra_applications: [:logger, :crypto]]
+  end
+
+config :dosequis, startup_apps: startup_apps
