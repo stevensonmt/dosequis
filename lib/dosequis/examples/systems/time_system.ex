@@ -5,27 +5,30 @@ defmodule TimeSystem do
 
   def process do
     components()
-      |> Enum.each(fn (pid) -> dispatch(pid, :increment) end)
+    |> Enum.each(fn pid -> dispatch(pid, :increment) end)
   end
 
   # dispatch() is a pure reducer that takes in a state and an action and returns a new state
   defp dispatch(pid, action) do
-    %{id: _pid, state: state} = ECS.Component.get(pid)
+    %{id: _pid, state: state} = DosEquis.Component.get(pid)
 
-    new_state = case action do
-      :increment ->
-        Map.put(state, :age, state.age + 1)
-      :decrement ->
-        Map.put(state, :age, state.age - 1)
-      _ ->
-        state
-    end
+    new_state =
+      case action do
+        :increment ->
+          Map.put(state, :age, state.age + 1)
 
-    IO.puts("Updated #{inspect pid} to #{inspect new_state}")
-    ECS.Component.update(pid, new_state)
+        :decrement ->
+          Map.put(state, :age, state.age - 1)
+
+        _ ->
+          state
+      end
+
+    IO.puts("Updated #{inspect(pid)} to #{inspect(new_state)}")
+    DosEquis.Component.update(pid, new_state)
   end
 
   defp components do
-    ECS.Registry.get(:"Elixir.TimeComponent")
+    DosEquis.Registry.get(:"Elixir.TimeComponent")
   end
 end
